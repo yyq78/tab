@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my_tab</title>
+</head>
+<style type="text/css">
+   *{
+       padding:0;
+       margin:0;
+   }
+    #tab-box{
+        position:relative;
+        width:100px;
+        height:400px;
+        list-style-type: none;
+        border:1px solid silver;
+        padding:100px 100px;
+    }
+    #tab-box li{
+        display:table;
+        width:100px;
+        margin:10px auto;
+        height:60px;
+        background-color: seashell;
+    }
+    #tab-box li span{
+        display:table-cell;
+        vertical-align:middle;
+        text-align:center;
+    }
+    #con-box{
+        width:800px;
+        height:400px;
+        padding:100px;
+        border:1px solid silver;
+        position:absolute;
+        top:0;
+        left:300px;
+    }
+    #con-box p{
+        display:none;
+    }
+    .hide{
+        display:none!important;
+    }
+   .cur{
+        display:block!important;
+    }
+
+</style>
+<body>
+<ul id="tab-box">
+    <li><span><a href="#">选项1</a></span></li>
+    <li><span><a href="#">选项2</a></span></li>
+    <li><span><a href="#">选项3</a></span></li>
+    <li><span><a href="#">选项4</a></span></li>
+</ul>
+<div id="con-box">
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+    <p>内容4</p>
+</div>
+    <script>
+        var lis=document.getElementsByTagName("li");
+        var cons=document.getElementsByTagName("p");
+        for(var i=0;i<lis.length;i++){
+            lis[i].index=i;
+            lis[i].onclick=function() {
+                for(var j = 0; j < cons.length; j++) {
+                    cons[j].className = "hide";
+                }
+                cons[this.index].className="cur";
+            }
+        }
+    </script>
+</body>
+</html>
